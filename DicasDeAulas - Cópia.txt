@@ -1,0 +1,127 @@
+0 - Criando virtual host:
+  0.1 - acessar o arquivo de host virtual do apache(pelo WAMP):
+        C:\<nome_da_pasta>\bin\apache2.4.39\conf\extra\httpd-vhosts.conf
+ 
+  0.2 - o arquivo já possui um script modelo. Copiar e mudar para o desejado como o exemplo:
+   
+    <VirtualHost *:80>
+      ServerName wabisabi
+      ServerAlias wabisabi
+      DocumentRoot "C:\wamp64\www\Laravel\wabisabiWeb\public"
+      <Directory "C:\wamp64\www\Laravel\wabisabiWeb\public">
+        Options +Indexes +Includes +FollowSymLinks +MultiViews
+        AllowOverride All
+        Require local
+      </Directory>
+    </VirtualHost>
+
+  0.3 - Acessar a pasta do windows; Acessar o arquivo "hosts" para configurar o virtual host criado:
+        C:\windows\System32\drivers\etc\hosts.Ficheiro     
+  
+  0.4 - inserir: <endereço ip>+<nome desejado> e depois salvar e reiniciar o PC
+        Ex: 127.0.0.1 wabisabi
+                
+
+1 - instalar o Composer: 
+    (Pelo site oficial https://getcomposer.org/);
+
+2 - instalar o Laravel + composer (copiar link pelo site oficial);
+    composer create-project --prefer-dist laravel/laravel <nome_pasta_projeto>
+   
+    ou 
+
+    composer global require laravel/installer
+    laravel new <nome_pasta_projeto>
+
+  2.1 - instalar a pasta Vendor dentro do projeto : 
+        composer install;
+  
+  2.2 - instalar a pasta node_modules dentro do projeto: 
+        npm install;
+
+  2.3 - instalar ambientes graficos: Ex. Bootstrap:
+         - composer require laravel/ui
+         - php artisan ui bootstrap
+         - npm install
+
+  2.4 - instalar o ambiente VUE
+        - php artisan ui vue
+
+  *** Nota:  para instalações de packs geralmente usa-se : php artisan ui <nome do pack> ***
+
+  2.5 - instalar a chave de segurança do projeto:
+        php artisan key:generate
+
+3 - criar o projeto laravel (linha de comando encontrada no site do Laravel);
+
+3.1 - comando : "composer update" na raiz do projeto vai procurar e atualizar a pasta "Vendor"
+
+4 - listar rotas : php artisan route:list;
+
+5 - criar controller : php artisan make:controller <nome do controlador a ser criaado>;
+
+6 - criar controller com resources :  php artisan make:controller <nome controlador> --resource
+
+7 - Instalar dependencias gráficas: 
+    a - composer require laravel/ui (dentro da pasta do projeto);
+    b - php artisan ui bootstrap;
+    c - npm install (cria a pasta de node_modules);
+    d - npm run dev (cria o css e js nativo para os arquivos nativos do node_modules);
+
+7.1 - Bootstrap no Laravel 6.0:
+      a - composer require laravel/ui
+      b - php artisan ui bootstrap
+      c - npm install && npm run dev
+
+8 - Criar migrations : php artisan make:migration <nome da migration> --create=<nome da tabela>
+
+9 - Rodar as migrations para o BD:  php artisan migrate 
+
+9.1 - Refaz todas as tabelas já existentes: php artisan migrate:refresh
+
+10 - Desfazer um migrate: php artisan migrate:rollback 
+
+11 - Adicionar um campo em uma tablela: php artisan make:migration add_<nome do campo>_to_<tabela> --table=<tabela>
+
+12 - Mostra status dos migrates :  php artisan migrate:status
+
+13 - Volta ao estado inicial das migrates: php artisan migrate:reset
+
+14 - Executar drop em todas as tabelas : php artisan migrate:fresh
+
+15 - Criando Models : php artisan make:model <nome da model>
+
+16 - Editor de testes do PHP Artisan: php artisan tinker 
+
+16.1 - Para interagir com as tabelas no Tinker tem que adicionar o Use:
+       Ex: use \App\<nome da model criada>
+
+16.2 - Link oficial Laravel - pag de Collections : https://laravel.com/docs/7.x/collections
+
+******IMPORTANTE: Aula: SEÇÃO 9 CAPITULO 56 A DIANTE*********
+** Explica como manipular funções para banco de dados e tabelas;
+** Explica usa deleção lógica com SoftDelete;
+
+17 - Instalar collections no laravel: Ex: html :
+     composer require laravelcollective/html
+
+17.1 - Acessar a pasta e o arquivo: 
+       "config\app.php"
+
+17.2 - incluir a seguinte linha dentro da classe " 'providers' => [ ..." :
+       Collective\Html\HtmlServiceProvider::class,
+
+17.3 - incluir as seguintes linhas dentro da classe "  'aliases' => [... " :
+       'Form' => Collective\Html\FormFacade::class,
+       'Html' => Collective\Html\HtmlFacade::class,
+
+*****************************************
+
+******IMPORTANTE: Aula: SEÇÃO 11 CAPITULO 87 VALIDAÇÃO UNIQUE COM DICAS*********
+18 - Acessar laravel.com/docs  e procurar artigo sobre outras validações para fomrulários.
+
+*****************************************
+
+
+
+

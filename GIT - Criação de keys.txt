@@ -1,0 +1,17 @@
+1- Criar pasta do git em sua pasta de projeto local
+Git init
+
+2- Fazer conecaxão da pasta local com a pasta remota apontando para o repositório escolhido:
+git remote add origin git@github.com:ChristianoBlanco/relatorio-um-pra-um.git
+
+3- Gerar a key 
+ssh-keygen -t ed25519 -C "kinstauser@kinsta.com"
+
+4- Ir no diretório local de sua máquina e acessar a sua pasta de usuários(pasta oculta), e acessar a pasta .ssh: 
+Ex.: users/chris/.ssh/
+
+5- Copiar e colar a linha de código da key(chave) no gerador de chaves na sua conta do github:
+   - repositorios/ <escolher o repositorio> , e em seguita clicar em Setings(configurações).
+   - ir na opção deploy keys
+   - criar um título 
+   - e colar a chave gerada : o ssh ou http conforme o escolido
