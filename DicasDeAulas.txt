@@ -122,6 +122,9 @@
 
 *****************************************
 
+19 - Cria Arquivos de autenticação para login
+     "php artisan make:auth"
+
 
 
 
